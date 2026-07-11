@@ -38,6 +38,7 @@ The complete, always-up-to-date directory lives at **[aivtuber.tv](https://aivtu
 - [AI VTuber Directory](#ai-vtuber-directory)
 - [How AI VTubers Work](#how-ai-vtubers-work)
 - [Frequently Asked Questions](#frequently-asked-questions)
+- [Dataset & API](#dataset--api)
 - [Community & Links](#community--links)
 
 ---
@@ -202,6 +203,44 @@ Language models for conversation, text-to-speech for voice, and 3D or Live2D for
 Twitch is where most of them stream, with clips and highlights on YouTube and TikTok. The [directory](#ai-vtuber-directory) above has links to all of them. Or just go straight to [twitch.tv/xo_khaos](https://www.twitch.tv/xo_khaos) for Moonlash.
 
 </details>
+
+---
+
+## Dataset & API
+
+All the directory data is published as structured downloads and a static JSON API. CC0, no attribution required.
+
+### Dataset
+
+The AI VTuber Dataset 2026 covers all 15 active streamers. Each entry has name, developer, species, gender, model type, tags, every social link, and boolean flags for things like local AI and 24/7 Discord availability.
+
+| Format | URL |
+| --- | --- |
+| JSON | [aivtuber.tv/dataset/ai-vtubers-2026.json](https://aivtuber.tv/dataset/ai-vtubers-2026.json) |
+| CSV | [aivtuber.tv/dataset/ai-vtubers-2026.csv](https://aivtuber.tv/dataset/ai-vtubers-2026.csv) |
+| Schema docs | [aivtuber.tv/dataset/README.md](https://aivtuber.tv/dataset/README.md) |
+
+Drop the CSV straight into pandas:
+
+```python
+import pandas as pd
+df = pd.read_csv("https://aivtuber.tv/dataset/ai-vtubers-2026.csv")
+```
+
+### JSON API
+
+Every AI VTuber and every developer has their own endpoint. Static JSON served via GitHub Pages, no server, no rate limits.
+
+Base URL: `https://aivtuber.tv/api/`
+
+| Route | What it returns |
+| --- | --- |
+| [/api/index.json](https://aivtuber.tv/api/index.json) | Master list of all 29 routes |
+| [/api/moonlash/index.json](https://aivtuber.tv/api/moonlash/index.json) | Moonlash data with cross-links to developer |
+| [/api/khaos/index.json](https://aivtuber.tv/api/khaos/index.json) | Khaos data with cross-links to AI |
+| [/api/neuro-sama/index.json](https://aivtuber.tv/api/neuro-sama/index.json) | Neuro-sama data |
+
+Each route returns `name`, `slug`, `type` (AI or Developer), `description`, `tags`, `image`, `twitch`, `sameAs`, and cross-references to the paired AI or developer.
 
 ---
 
