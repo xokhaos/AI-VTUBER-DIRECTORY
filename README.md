@@ -19,6 +19,16 @@
 
 </div>
 
+<div align="center">
+
+### Looking for every AI VTuber in one place?
+
+The complete, always-up-to-date directory lives at **[aivtuber.tv](https://aivtuber.tv/)**. That's the full list — go find your next favorite.
+
+[![Browse All AI VTubers](https://img.shields.io/badge/Browse_All_AI_VTubers-aivtuber.tv-ff2d55?style=for-the-badge)](https://aivtuber.tv/)
+
+</div>
+
 ---
 
 ## Table of Contents
